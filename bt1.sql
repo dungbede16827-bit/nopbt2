@@ -10,6 +10,6 @@ create table PRODUCTS (
     productName varchar(100),
     price decimal(18,2),
     quantity int,
-    totalAmount decimal(18,2),
+    totalAmount decimal(18,0),
     descriptionn varchar(500)
 );
