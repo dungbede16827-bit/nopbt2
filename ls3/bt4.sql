@@ -1,7 +1,7 @@
 -- Cách 1: Xóa đơn hàng bị hủy
 DELETE FROM ORDERS
 WHERE Status = 'Canceled';
--- Cách 2: Soft Delete (chọn cách này)
+-- Cách 2: Soft Delete 
 -- Thêm cột
 ALTER TABLE ORDERS
 ADD IsDeleted BIT DEFAULT 0;
@@ -12,12 +12,12 @@ SET IsDeleted = 1
 WHERE Status = 'Canceled';
 
 
--- Truy vấn cho người dùng (không thấy đơn hủy)
+-- Truy vấn cho người dùng 
 SELECT *
 FROM ORDERS
 WHERE IsDeleted = 0;
 
--- Truy vấn cho kế toán (vẫn thấy đơn hủy)
+-- Truy vấn cho kế toán 
 SELECT *
 FROM ORDERS
 WHERE Status = 'Canceled';
